@@ -14,6 +14,7 @@ namespace DiziTakip_EntityCF
     public partial class Form1 : Form
     {
         DiziTakipContext db = new DiziTakipContext();
+        Dizi duzenlenen;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace DiziTakip_EntityCF
         {
             string diziAd = txtAd.Text.Trim();
             if (diziAd == "") return;
+           
 
             db.Diziler.Add(new Dizi()
             {
@@ -40,6 +42,31 @@ namespace DiziTakip_EntityCF
             db.SaveChanges();
             Listele();
             
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            if (dgvDiziler.SelectedRows.Count != 1) return;
+            
+                Dizi dizi = (Dizi)dgvDiziler.SelectedRows[0].DataBoundItem;
+                db.Diziler.Remove(dizi);
+                db.SaveChanges();
+                Listele();
+            
+        }
+
+        private void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            if (dgvDiziler.SelectedRows.Count != 1) return;
+
+            Dizi dizi = (Dizi)dgvDiziler.SelectedRows[0].DataBoundItem;
+            txtAd.Text = dizi.Ad;
+            nudSezon.Value = dizi.Sezon;
+            nudBolum.Value = dizi.Bolum;
+            chkBittiMi.Checked = dizi.BittiMi;
+            btnEkle.Text = "Kaydet";
+            btnIptal.Show();
+
         }
     }
 }

@@ -117,9 +117,15 @@ namespace DiziTakip_EntityCF
             // 
             // dgvDiziler
             // 
+            this.dgvDiziler.AllowUserToAddRows = false;
+            this.dgvDiziler.AllowUserToDeleteRows = false;
             this.dgvDiziler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiziler.Location = new System.Drawing.Point(24, 122);
+            this.dgvDiziler.MultiSelect = false;
             this.dgvDiziler.Name = "dgvDiziler";
+            this.dgvDiziler.ReadOnly = true;
+            this.dgvDiziler.RowHeadersVisible = false;
+            this.dgvDiziler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDiziler.Size = new System.Drawing.Size(947, 375);
             this.dgvDiziler.TabIndex = 7;
             // 
@@ -131,6 +137,7 @@ namespace DiziTakip_EntityCF
             this.btnSil.TabIndex = 8;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnDuzenle
             // 
@@ -140,6 +147,7 @@ namespace DiziTakip_EntityCF
             this.btnDuzenle.TabIndex = 9;
             this.btnDuzenle.Text = "Düzenle";
             this.btnDuzenle.UseVisualStyleBackColor = true;
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
             // 
             // btnEkle
             // 
