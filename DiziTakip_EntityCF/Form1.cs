@@ -30,29 +30,49 @@ namespace DiziTakip_EntityCF
         {
             string diziAd = txtAd.Text.Trim();
             if (diziAd == "") return;
-           
-
-            db.Diziler.Add(new Dizi()
+            if (duzenlenen == null)
             {
-                Ad=diziAd,
-                Sezon=(int)nudSezon.Value,
-                Bolum=(int)nudBolum.Value,
-                BittiMi=chkBittiMi.Checked
-            });
+                db.Diziler.Add(new Dizi()
+                {
+                    Ad = diziAd,
+                    Sezon = (int)nudSezon.Value,
+                    Bolum = (int)nudBolum.Value,
+                    BittiMi = chkBittiMi.Checked
+                });
+            }
+            else
+            {
+                duzenlenen.Ad = diziAd;
+                
+            }
+
+
             db.SaveChanges();
+            FormuResetle();
             Listele();
-            
+
+        }
+
+        private void FormuResetle()
+        {
+            duzenlenen = null;
+            txtAd.Clear();
+            nudSezon.Value = nudBolum.Value = 0;
+            chkBittiMi.Checked = false;
+            btnEkle.Text = "Ekle";
+            btnIptal.Hide();
+            txtAd.Focus();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (dgvDiziler.SelectedRows.Count != 1) return;
-            
-                Dizi dizi = (Dizi)dgvDiziler.SelectedRows[0].DataBoundItem;
-                db.Diziler.Remove(dizi);
-                db.SaveChanges();
-                Listele();
-            
+
+            Dizi dizi = (Dizi)dgvDiziler.SelectedRows[0].DataBoundItem;
+            db.Diziler.Remove(dizi);
+            db.SaveChanges();
+            Listele();
+
         }
 
         private void btnDuzenle_Click(object sender, EventArgs e)
