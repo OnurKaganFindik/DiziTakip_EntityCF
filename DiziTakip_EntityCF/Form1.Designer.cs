@@ -45,6 +45,7 @@ namespace DiziTakip_EntityCF
             this.btnIptal = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAra = new System.Windows.Forms.TextBox();
+            this.chkBitenlerGoster = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudSezon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBolum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiziler)).BeginInit();
@@ -82,7 +83,7 @@ namespace DiziTakip_EntityCF
             // 
             // txtAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(18, 66);
+            this.txtAd.Location = new System.Drawing.Point(18, 51);
             this.txtAd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(148, 26);
@@ -90,7 +91,7 @@ namespace DiziTakip_EntityCF
             // 
             // nudSezon
             // 
-            this.nudSezon.Location = new System.Drawing.Point(208, 64);
+            this.nudSezon.Location = new System.Drawing.Point(208, 49);
             this.nudSezon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudSezon.Name = "nudSezon";
             this.nudSezon.Size = new System.Drawing.Size(70, 26);
@@ -98,7 +99,7 @@ namespace DiziTakip_EntityCF
             // 
             // nudBolum
             // 
-            this.nudBolum.Location = new System.Drawing.Point(316, 64);
+            this.nudBolum.Location = new System.Drawing.Point(316, 49);
             this.nudBolum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudBolum.Name = "nudBolum";
             this.nudBolum.Size = new System.Drawing.Size(70, 26);
@@ -107,7 +108,7 @@ namespace DiziTakip_EntityCF
             // chkBittiMi
             // 
             this.chkBittiMi.AutoSize = true;
-            this.chkBittiMi.Location = new System.Drawing.Point(416, 68);
+            this.chkBittiMi.Location = new System.Drawing.Point(416, 53);
             this.chkBittiMi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkBittiMi.Name = "chkBittiMi";
             this.chkBittiMi.Size = new System.Drawing.Size(84, 24);
@@ -120,18 +121,18 @@ namespace DiziTakip_EntityCF
             this.dgvDiziler.AllowUserToAddRows = false;
             this.dgvDiziler.AllowUserToDeleteRows = false;
             this.dgvDiziler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiziler.Location = new System.Drawing.Point(24, 122);
+            this.dgvDiziler.Location = new System.Drawing.Point(18, 107);
             this.dgvDiziler.MultiSelect = false;
             this.dgvDiziler.Name = "dgvDiziler";
             this.dgvDiziler.ReadOnly = true;
             this.dgvDiziler.RowHeadersVisible = false;
             this.dgvDiziler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDiziler.Size = new System.Drawing.Size(947, 375);
+            this.dgvDiziler.Size = new System.Drawing.Size(953, 375);
             this.dgvDiziler.TabIndex = 7;
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(24, 514);
+            this.btnSil.Location = new System.Drawing.Point(24, 499);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(106, 38);
             this.btnSil.TabIndex = 8;
@@ -141,7 +142,7 @@ namespace DiziTakip_EntityCF
             // 
             // btnDuzenle
             // 
-            this.btnDuzenle.Location = new System.Drawing.Point(160, 514);
+            this.btnDuzenle.Location = new System.Drawing.Point(160, 499);
             this.btnDuzenle.Name = "btnDuzenle";
             this.btnDuzenle.Size = new System.Drawing.Size(99, 38);
             this.btnDuzenle.TabIndex = 9;
@@ -151,9 +152,9 @@ namespace DiziTakip_EntityCF
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(528, 64);
+            this.btnEkle.Location = new System.Drawing.Point(507, 49);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(92, 28);
+            this.btnEkle.Size = new System.Drawing.Size(113, 28);
             this.btnEkle.TabIndex = 8;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -161,12 +162,13 @@ namespace DiziTakip_EntityCF
             // 
             // btnIptal
             // 
-            this.btnIptal.Location = new System.Drawing.Point(661, 64);
+            this.btnIptal.Location = new System.Drawing.Point(641, 49);
             this.btnIptal.Name = "btnIptal";
-            this.btnIptal.Size = new System.Drawing.Size(76, 28);
+            this.btnIptal.Size = new System.Drawing.Size(114, 28);
             this.btnIptal.TabIndex = 9;
             this.btnIptal.Text = "İptal";
             this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // label4
             // 
@@ -180,17 +182,30 @@ namespace DiziTakip_EntityCF
             // 
             // txtAra
             // 
-            this.txtAra.Location = new System.Drawing.Point(790, 64);
+            this.txtAra.Location = new System.Drawing.Point(790, 49);
             this.txtAra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAra.Name = "txtAra";
-            this.txtAra.Size = new System.Drawing.Size(148, 26);
+            this.txtAra.Size = new System.Drawing.Size(181, 26);
             this.txtAra.TabIndex = 3;
+            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
+            // 
+            // chkBitenlerGoster
+            // 
+            this.chkBitenlerGoster.AutoSize = true;
+            this.chkBitenlerGoster.Location = new System.Drawing.Point(18, 77);
+            this.chkBitenlerGoster.Name = "chkBitenlerGoster";
+            this.chkBitenlerGoster.Size = new System.Drawing.Size(138, 24);
+            this.chkBitenlerGoster.TabIndex = 10;
+            this.chkBitenlerGoster.Text = "Bitenleri Göster";
+            this.chkBitenlerGoster.UseVisualStyleBackColor = true;
+            this.chkBitenlerGoster.CheckedChanged += new System.EventHandler(this.chkBitenlerGoster_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 593);
+            this.ClientSize = new System.Drawing.Size(990, 553);
+            this.Controls.Add(this.chkBitenlerGoster);
             this.Controls.Add(this.btnIptal);
             this.Controls.Add(this.btnDuzenle);
             this.Controls.Add(this.btnEkle);
@@ -233,6 +248,7 @@ namespace DiziTakip_EntityCF
         private System.Windows.Forms.Button btnIptal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAra;
+        private System.Windows.Forms.CheckBox chkBitenlerGoster;
     }
 }
 

@@ -23,6 +23,16 @@ namespace DiziTakip_EntityCF
 
         private void Listele()
         {
+            string ara = txtAra.Text.Trim();
+
+            IQueryable<Dizi> sorgu = db.Diziler;
+
+            if (ara != "")
+                sorgu = sorgu.Where(x => x.Ad.Contains(ara));
+
+            if (chkBitenlerGoster.Checked)
+                sorgu = sorgu.Where(x => x.BittiMi);
+
             dgvDiziler.DataSource = db.Diziler.ToList();
         }
 
@@ -43,7 +53,10 @@ namespace DiziTakip_EntityCF
             else
             {
                 duzenlenen.Ad = diziAd;
-                
+                duzenlenen.Sezon = (int)nudSezon.Value;
+                duzenlenen.Bolum = (int)nudBolum.Value;
+                duzenlenen.BittiMi = chkBittiMi.Checked;
+
             }
 
 
@@ -87,6 +100,21 @@ namespace DiziTakip_EntityCF
             btnEkle.Text = "Kaydet";
             btnIptal.Show();
 
+        }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+            FormuResetle();
+        }
+
+        private void txtAra_TextChanged(object sender, EventArgs e)
+        {
+            Listele();
+        }
+
+        private void chkBitenlerGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            Listele();
         }
     }
 }
